@@ -1,0 +1,37 @@
+{
+  "name": "wp-import",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "clean": "rm -rf build && mkdir build",
+    "build-babel": "babel -d ./build ./src -s",
+    "build": "npm run clean && npm run build-babel",
+    "start": "npm run build && node ./build/index.js",
+    "once": "rm -rf ./output/ && babel-node ./src/index.js",
+    "parse": "rm -rf ./data/data.json && babel-node ./src/xml2Json.js",
+    "dev": "rm -rf ./node_modules/.cache/@babel && ./node_modules/.bin/nodemon --exec babel-node ./src/index.js"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.2",
+    "@babel/node": "^7.7.0",
+    "@babel/polyfill": "^7.7.0",
+    "@babel/preset-env": "^7.7.1",
+    "@babel/register": "^7.7.0",
+    "add": "^2.0.6",
+    "nodemon": "^1.19.4",
+    "yarn": "^1.19.1"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "dotenv": "^8.2.0",
+    "handlebars": "^4.5.2",
+    "lodash": "^4.17.15",
+    "rehype-parse": "^6.0.2",
+    "rehype-remark": "^7.0.0",
+    "remark-stringify": "^7.0.4",
+    "unified": "^8.4.2",
+    "unified-stream": "^1.0.5",
+    "xml2js": "^0.4.22"
+  }
+}

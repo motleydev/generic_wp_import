@@ -2,7 +2,7 @@ require("dotenv").config();
 const axios = require("fetch");
 
 const API = (stage = "master") =>
-  `https://api-euwest.graphcms.com/v1/${process.env.PROJECT_ID}/${stage}`;
+  `https://api-euwest.graphcms.com/v1/${process.env.API_ID}/${stage}`;
 const PROJECT_API = API("master");
 
 // Builds generic AXIOS utils.
